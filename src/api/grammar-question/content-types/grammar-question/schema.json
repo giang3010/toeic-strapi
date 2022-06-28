@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grammar_questions",
+  "info": {
+    "singularName": "grammar-question",
+    "pluralName": "grammar-questions",
+    "displayName": "GrammarQuestion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "questionId": {
+      "type": "integer",
+      "required": true
+    },
+    "grammarId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grammar.grammar",
+      "inversedBy": "questions"
+    }
+  }
+}

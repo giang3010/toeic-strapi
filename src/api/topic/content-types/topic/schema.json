@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "topics",
+  "info": {
+    "singularName": "topic",
+    "pluralName": "topics",
+    "displayName": "Topic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "partitionCode": {
+      "type": "string",
+      "required": true
+    },
+    "pointLadder": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::point-ladder.point-ladder",
+      "mappedBy": "topicId"
+    },
+    "vocabulary": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vocabulary.vocabulary",
+      "mappedBy": "topicId"
+    }
+  }
+}

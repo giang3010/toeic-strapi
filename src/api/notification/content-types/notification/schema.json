@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "singularName": "notification",
+    "pluralName": "notifications",
+    "displayName": "Notification"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "contents": {
+      "type": "json",
+      "required": true
+    },
+    "send_after": {
+      "type": "string"
+    },
+    "delayed_option": {
+      "type": "string"
+    },
+    "delivery_time_of_day": {
+      "type": "string"
+    },
+    "included_segments": {
+      "type": "json"
+    },
+    "include_player_ids": {
+      "type": "json"
+    },
+    "include_email_tokens": {
+      "type": "json"
+    },
+    "include_phone_numbers": {
+      "type": "json"
+    },
+    "include_ios_tokens": {
+      "type": "json"
+    },
+    "include_android_reg_ids": {
+      "type": "json"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "read": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "time": {
+      "type": "integer"
+    }
+  }
+}

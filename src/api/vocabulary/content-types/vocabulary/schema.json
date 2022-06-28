@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vocabularies",
+  "info": {
+    "singularName": "vocabulary",
+    "pluralName": "vocabularies",
+    "displayName": "Vocabulary",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "vocabulary": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": false
+    },
+    "translate": {
+      "type": "string",
+      "required": true
+    },
+    "spelling": {
+      "type": "string",
+      "required": true
+    },
+    "example": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "topicId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::topic.topic",
+      "inversedBy": "vocabulary"
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vocab-question.vocab-question",
+      "mappedBy": "vocabularyId"
+    }
+  }
+}

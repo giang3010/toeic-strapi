@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grammars",
+  "info": {
+    "singularName": "grammar",
+    "pluralName": "grammars",
+    "displayName": "Grammar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "partitionCode": {
+      "type": "string",
+      "required": true
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::grammar-question.grammar-question",
+      "mappedBy": "grammarId"
+    },
+    "pointLadder": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::point-ladder.point-ladder",
+      "mappedBy": "grammarId"
+    }
+  }
+}

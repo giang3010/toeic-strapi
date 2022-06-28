@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "practice_logs",
+  "info": {
+    "singularName": "practice-log",
+    "pluralName": "practice-logs",
+    "displayName": "PracticeLog"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "practiceId": {
+      "type": "integer",
+      "required": true
+    },
+    "userId": {
+      "type": "integer",
+      "required": true
+    },
+    "content": {
+      "type": "json",
+      "required": true
+    },
+    "numQuestion": {
+      "type": "integer",
+      "required": true
+    },
+    "numCorrect": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

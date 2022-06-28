@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exams",
+  "info": {
+    "singularName": "exam",
+    "pluralName": "exams",
+    "displayName": "Exam",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "json",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "time": {
+      "type": "biginteger",
+      "required": true
+    },
+    "inputTest": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "levelTest": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "partitionCode": {
+      "type": "string",
+      "required": true
+    },
+    "pointLadder": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::point-ladder-exam.point-ladder-exam",
+      "mappedBy": "examId"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "child_questions",
+  "info": {
+    "singularName": "child-question",
+    "pluralName": "child-questions",
+    "displayName": "ChildQuestion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order": {
+      "type": "integer",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "fill",
+        "multipleChoice"
+      ],
+      "required": true
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subAudio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "question": {
+      "type": "text",
+      "required": true
+    },
+    "translate": {
+      "type": "text",
+      "required": true
+    },
+    "solve": {
+      "type": "text"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "partitionCode": {
+      "type": "string",
+      "required": true
+    },
+    "parentId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::question.question",
+      "inversedBy": "children"
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::answer.answer",
+      "mappedBy": "questionChildrenId"
+    }
+  }
+}

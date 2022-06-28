@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "answers",
+  "info": {
+    "singularName": "answer",
+    "pluralName": "answers",
+    "displayName": "Answer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "correct": {
+      "type": "boolean",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "noText": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "translate": {
+      "type": "text"
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "subAudio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "active": {
+      "type": "boolean",
+      "required": false
+    },
+    "questionId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::question.question",
+      "inversedBy": "answers"
+    },
+    "questionChildrenId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::child-question.child-question",
+      "inversedBy": "answers"
+    }
+  }
+}

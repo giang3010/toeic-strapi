@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "point_ladder_exams",
+  "info": {
+    "singularName": "point-ladder-exam",
+    "pluralName": "point-ladder-exams",
+    "displayName": "PointLadderExam",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pointLadder": {
+      "type": "integer",
+      "required": true
+    },
+    "questionId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::question.question",
+      "inversedBy": "pointLadder"
+    },
+    "examId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::exam.exam",
+      "inversedBy": "pointLadder"
+    }
+  }
+}

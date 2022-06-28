@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "practices",
+  "info": {
+    "singularName": "practice",
+    "pluralName": "practices",
+    "displayName": "Practice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "part": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "numberQuestion": {
+      "type": "integer",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "partitionCode": {
+      "type": "string",
+      "required": true
+    },
+    "pointLadder": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::point-ladder.point-ladder",
+      "mappedBy": "practiceId"
+    }
+  }
+}

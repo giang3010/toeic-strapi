@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vocab_questions",
+  "info": {
+    "singularName": "vocab-question",
+    "pluralName": "vocab-questions",
+    "displayName": "VocabQuestion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "questionId": {
+      "type": "integer",
+      "required": true
+    },
+    "vocabularyId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vocabulary.vocabulary",
+      "inversedBy": "questions"
+    }
+  }
+}

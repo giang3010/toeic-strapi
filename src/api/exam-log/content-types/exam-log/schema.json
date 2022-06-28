@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exam_logs",
+  "info": {
+    "singularName": "exam-log",
+    "pluralName": "exam-logs",
+    "displayName": "ExamLog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "examId": {
+      "type": "integer",
+      "required": true
+    },
+    "userId": {
+      "type": "integer",
+      "required": true
+    },
+    "content": {
+      "type": "json"
+    },
+    "numQuestion": {
+      "type": "integer",
+      "required": true
+    },
+    "numCorrect": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

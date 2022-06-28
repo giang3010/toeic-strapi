@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "targets",
+  "info": {
+    "singularName": "target",
+    "pluralName": "targets",
+    "displayName": "target",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "point": {
+      "type": "integer",
+      "required": true
+    },
+    "target": {
+      "type": "integer",
+      "required": true
+    },
+    "userId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "point_ladders",
+  "info": {
+    "singularName": "point-ladder",
+    "pluralName": "point-ladders",
+    "displayName": "PointLadder",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pointLadder": {
+      "type": "integer",
+      "required": true
+    },
+    "grammarId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grammar.grammar",
+      "inversedBy": "pointLadder"
+    },
+    "topicId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::topic.topic",
+      "inversedBy": "pointLadder"
+    },
+    "practiceId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::practice.practice",
+      "inversedBy": "pointLadder"
+    }
+  }
+}
