@@ -8,20 +8,26 @@ const { createCoreService } = require('@strapi/strapi').factories;
 const Question = 'api::question.question';
 
 module.exports = createCoreService(Question, {
-    findListByIds(ids) {
+    findList(ids) {
         return new Promise(async(resolve, reject) => {
             try {
-                console.log(1, ids);
                 const res1 = await strapi.db.query(Question).findMany({
                     where: {
                         id: {
                             $in: ids,
                         },
                     },
-                });
+                    populate: {
+                        children: {
+                            populate: {
+                                answers: true,
+                            },
+                        },
 
-                console.log(res);
-                return resolve(res);
+                        pointLadder: true,
+                    },
+                });
+                return resolve(res1);
             } catch (error) {
                 return reject(error);
             }

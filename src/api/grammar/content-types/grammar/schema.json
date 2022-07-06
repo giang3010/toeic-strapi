@@ -16,14 +16,6 @@
       "type": "string",
       "required": true
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "content": {
       "type": "richtext",
       "required": true
@@ -48,6 +40,9 @@
       "relation": "oneToMany",
       "target": "api::point-ladder.point-ladder",
       "mappedBy": "grammarId"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

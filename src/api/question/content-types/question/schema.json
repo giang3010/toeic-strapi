@@ -88,16 +88,16 @@
       "target": "api::child-question.child-question",
       "mappedBy": "parentId"
     },
-    "pointLadder": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::point-ladder-exam.point-ladder-exam",
-      "mappedBy": "questionId"
-    },
     "answers": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::answer.answer",
+      "mappedBy": "questionId"
+    },
+    "pointLadder": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::point-ladder-exam.point-ladder-exam",
       "mappedBy": "questionId"
     }
   }

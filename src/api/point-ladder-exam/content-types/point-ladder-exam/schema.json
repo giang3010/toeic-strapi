@@ -13,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "pointLadder": {
-      "type": "integer",
+      "type": "json",
       "required": true
     },
     "questionId": {

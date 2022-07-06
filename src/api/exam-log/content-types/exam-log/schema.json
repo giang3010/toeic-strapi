@@ -30,6 +30,14 @@
     "numCorrect": {
       "type": "integer",
       "required": true
+    },
+    "time": {
+      "type": "biginteger",
+      "required": true
+    },
+    "pointLadder": {
+      "type": "integer",
+      "required": true
     }
   }
 }

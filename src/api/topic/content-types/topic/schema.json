@@ -33,16 +33,16 @@
       "type": "string",
       "required": true
     },
-    "pointLadder": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::point-ladder.point-ladder",
-      "mappedBy": "topicId"
-    },
     "vocabulary": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::vocabulary.vocabulary",
+      "mappedBy": "topicId"
+    },
+    "pointLadder": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::point-ladder.point-ladder",
       "mappedBy": "topicId"
     }
   }

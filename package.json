@@ -17,6 +17,7 @@
         "@strapi/strapi": "4.2.0",
         "@strapi/utils": "^4.2.0",
         "cross-fetch": "^3.1.5",
+        "lodash": "^4.17.21",
         "nodemailer": "^6.7.5",
         "pg": "8.6.0",
         "twilio": "^3.77.3"

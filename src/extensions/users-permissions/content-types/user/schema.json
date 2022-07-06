@@ -20,12 +20,6 @@
       "configurable": false,
       "required": true
     },
-    "email": {
-      "type": "email",
-      "minLength": 6,
-      "configurable": false,
-      "required": true
-    },
     "provider": {
       "type": "string",
       "configurable": false
@@ -62,6 +56,11 @@
       "target": "plugin::users-permissions.role",
       "inversedBy": "users",
       "configurable": false
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "required": false
     },
     "gender": {
       "type": "string"

@@ -8,7 +8,8 @@ const { createCoreRouter } = require('@strapi/strapi').factories;
 
 module.exports = createCoreRouter('api::question.question', {
     prefix: '',
-    except: [],
+    only: [],
+    except: ['find', 'findOne'],
     config: {
         find: {
             auth: false,

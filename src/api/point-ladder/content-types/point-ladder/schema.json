@@ -13,13 +13,13 @@
   "pluginOptions": {},
   "attributes": {
     "pointLadder": {
-      "type": "integer",
+      "type": "json",
       "required": true
     },
-    "grammarId": {
+    "practiceId": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::grammar.grammar",
+      "target": "api::practice.practice",
       "inversedBy": "pointLadder"
     },
     "topicId": {
@@ -28,10 +28,10 @@
       "target": "api::topic.topic",
       "inversedBy": "pointLadder"
     },
-    "practiceId": {
+    "grammarId": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::practice.practice",
+      "target": "api::grammar.grammar",
       "inversedBy": "pointLadder"
     }
   }
