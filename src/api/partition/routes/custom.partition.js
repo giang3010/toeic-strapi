@@ -1,7 +1,7 @@
 module.exports = {
     routes: [{
-        method: 'POST',
-        path: '/v1/partition',
-        handler: 'partition.create',
+        method: 'GET',
+        path: '/partitions',
+        handler: 'partition.findAll',
     }, ],
 };

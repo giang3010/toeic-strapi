@@ -1,155 +1,5 @@
 {
-  "/v1/vocab-questions": {
-    "get": {
-      "responses": {
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VocabQuestionListResponse"
-              }
-            }
-          }
-        },
-        "400": {
-          "description": "Bad Request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "Unauthorized",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "Forbidden",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "Not Found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "500": {
-          "description": "Internal Server Error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        }
-      },
-      "tags": [
-        "Vocab-question"
-      ],
-      "parameters": [
-        {
-          "name": "sort",
-          "in": "query",
-          "description": "Sort by attributes ascending (asc) or descending (desc)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "pagination[withCount]",
-          "in": "query",
-          "description": "Retun page/pageSize (default: true)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "boolean"
-          }
-        },
-        {
-          "name": "pagination[page]",
-          "in": "query",
-          "description": "Page number (default: 0)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "pagination[pageSize]",
-          "in": "query",
-          "description": "Page size (default: 25)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "pagination[start]",
-          "in": "query",
-          "description": "Offset value (default: 0)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "pagination[limit]",
-          "in": "query",
-          "description": "Number of entities to return (default: 25)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "fields",
-          "in": "query",
-          "description": "Fields to return (ex: title,author)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "populate",
-          "in": "query",
-          "description": "Relations to return",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "operationId": "get/v1/vocab-questions"
-    },
+  "/vocab-questions": {
     "post": {
       "responses": {
         "200": {
@@ -217,7 +67,7 @@
         "Vocab-question"
       ],
       "parameters": [],
-      "operationId": "post/v1/vocab-questions",
+      "operationId": "post/vocab-questions",
       "requestBody": {
         "required": true,
         "content": {
@@ -230,87 +80,7 @@
       }
     }
   },
-  "/v1/vocab-questions/{id}": {
-    "get": {
-      "responses": {
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VocabQuestionResponse"
-              }
-            }
-          }
-        },
-        "400": {
-          "description": "Bad Request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "Unauthorized",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "Forbidden",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "Not Found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "500": {
-          "description": "Internal Server Error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        }
-      },
-      "tags": [
-        "Vocab-question"
-      ],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "",
-          "deprecated": false,
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "operationId": "get/v1/vocab-questions/{id}"
-    },
+  "/vocab-questions/{id}": {
     "put": {
       "responses": {
         "200": {
@@ -389,7 +159,7 @@
           }
         }
       ],
-      "operationId": "put/v1/vocab-questions/{id}",
+      "operationId": "put/vocab-questions/{id}",
       "requestBody": {
         "required": true,
         "content": {
@@ -480,7 +250,7 @@
           }
         }
       ],
-      "operationId": "delete/v1/vocab-questions/{id}"
+      "operationId": "delete/vocab-questions/{id}"
     }
   }
 }

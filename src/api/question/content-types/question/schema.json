@@ -37,30 +37,6 @@
         "multipleChoice"
       ]
     },
-    "audio": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "audios"
-      ]
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "subAudio": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "audios"
-      ]
-    },
     "question": {
       "type": "text",
       "required": true
@@ -99,6 +75,15 @@
       "relation": "oneToMany",
       "target": "api::point-ladder-exam.point-ladder-exam",
       "mappedBy": "questionId"
+    },
+    "audio": {
+      "type": "string"
+    },
+    "subAudio": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

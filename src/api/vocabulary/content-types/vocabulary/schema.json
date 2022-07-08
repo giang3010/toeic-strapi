@@ -32,22 +32,6 @@
       "type": "string",
       "required": true
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "audio": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "audios"
-      ]
-    },
     "active": {
       "type": "boolean",
       "default": false,
@@ -64,6 +48,12 @@
       "relation": "oneToMany",
       "target": "api::vocab-question.vocab-question",
       "mappedBy": "vocabularyId"
+    },
+    "image": {
+      "type": "string"
+    },
+    "audio": {
+      "type": "string"
     }
   }
 }

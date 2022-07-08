@@ -5,6 +5,7 @@
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
+const qs = require('qs');
 const Vocabulary = 'api::vocabulary.vocabulary';
 const VocabQuestion = 'api::vocab-question.vocab-question';
 const Question = 'api::question.question';
@@ -88,14 +89,19 @@ module.exports = createCoreController(Vocabulary, {
 
     async findAll(ctx) {
         try {
-            let { limit, offset } = ctx.query;
-            limit ? limit : (limit = 10);
-            offset ? offset : (offset = 0);
+            let { page, pageSize, sort, filters } = ctx.query;
+            let curPage = 0;
+            page ? page : (page = 1);
+            pageSize ? pageSize : (pageSize = 10);
+            curPage = page - 1;
             const rs = await strapi.query(Vocabulary).findMany({
-                limit: limit,
-                offset: offset,
+                limit: pageSize,
+                offset: pageSize * curPage,
+                orderBy: sort || { id: 'asc' },
+                filters: filters,
                 populate: ['questions'],
             });
+
             const data = JSON.parse(JSON.stringify(rs));
             for (const iterator of data) {
                 const ids = iterator.questions.map((gq) => gq.questionId);

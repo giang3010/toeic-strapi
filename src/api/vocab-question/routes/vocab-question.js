@@ -7,14 +7,10 @@
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
 module.exports = createCoreRouter('api::vocab-question.vocab-question', {
-    prefix: '/v1',
-    except: [],
+    prefix: '',
+    except: ['find', 'findOne'],
     config: {
-        find: {
-            auth: false,
-            policies: [],
-            middlewares: [],
-        },
+        find: {},
         findOne: {},
         create: {},
         update: {},

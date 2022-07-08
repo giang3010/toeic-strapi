@@ -16,14 +16,6 @@
       "type": "string",
       "required": true
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "active": {
       "type": "boolean",
       "default": false,
@@ -44,6 +36,9 @@
       "relation": "oneToMany",
       "target": "api::point-ladder.point-ladder",
       "mappedBy": "topicId"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

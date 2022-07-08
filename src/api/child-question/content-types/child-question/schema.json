@@ -24,30 +24,6 @@
       ],
       "required": true
     },
-    "audio": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "audios"
-      ]
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "subAudio": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "audios"
-      ]
-    },
     "question": {
       "type": "text",
       "required": true
@@ -79,6 +55,15 @@
       "relation": "oneToMany",
       "target": "api::answer.answer",
       "mappedBy": "questionChildrenId"
+    },
+    "audio": {
+      "type": "string"
+    },
+    "subAudio": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

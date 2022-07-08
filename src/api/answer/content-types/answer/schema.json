@@ -28,22 +28,6 @@
     "translate": {
       "type": "text"
     },
-    "audio": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "audios"
-      ]
-    },
-    "subAudio": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "audios"
-      ]
-    },
     "active": {
       "type": "boolean",
       "required": false
@@ -59,6 +43,12 @@
       "relation": "manyToOne",
       "target": "api::child-question.child-question",
       "inversedBy": "answers"
+    },
+    "audio": {
+      "type": "string"
+    },
+    "subAudio": {
+      "type": "string"
     }
   }
 }

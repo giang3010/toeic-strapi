@@ -1,8 +1,13 @@
 module.exports = {
     routes: [{
-        // Path defined with a regular expression
-        method: 'GET',
-        path: '/targets2', // Only match when the URL parameter is composed of lowercase letters
-        handler: 'target.find',
-    }, ],
+            method: 'GET',
+            path: '/targets/:id',
+            handler: 'target.findById',
+        },
+        {
+            method: 'GET',
+            path: '/targets',
+            handler: 'target.findAll',
+        },
+    ],
 };

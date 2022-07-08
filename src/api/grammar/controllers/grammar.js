@@ -85,12 +85,16 @@ module.exports = createCoreController(Grammar, {
     },
     async findAll(ctx) {
         try {
-            let { limit, offset } = ctx.query;
-            limit ? limit : (limit = 10);
-            offset ? offset : (offset = 0);
+            let { page, pageSize, sort, filters } = ctx.query;
+            let curPage = 0;
+            page ? page : (page = 1);
+            pageSize ? pageSize : (pageSize = 10);
+            curPage = page - 1;
             const rs = await strapi.query(Grammar).findMany({
-                limit,
-                offset,
+                limit: pageSize,
+                offset: pageSize * curPage,
+                orderBy: sort || { id: 'asc' },
+                filters: filters,
                 populate: ['pointLadder', 'questions'],
             });
 

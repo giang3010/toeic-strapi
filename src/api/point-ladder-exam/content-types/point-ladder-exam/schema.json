@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "pointLadder": {
-      "type": "json",
-      "required": true
-    },
     "questionId": {
       "type": "relation",
       "relation": "manyToOne",
@@ -27,6 +23,10 @@
       "relation": "manyToOne",
       "target": "api::exam.exam",
       "inversedBy": "pointLadder"
+    },
+    "pointLadder": {
+      "type": "integer",
+      "required": true
     }
   }
 }

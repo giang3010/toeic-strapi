@@ -20,14 +20,6 @@
       "type": "json",
       "required": true
     },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "time": {
       "type": "biginteger",
       "required": true
@@ -51,6 +43,9 @@
       "relation": "oneToMany",
       "target": "api::point-ladder-exam.point-ladder-exam",
       "mappedBy": "examId"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

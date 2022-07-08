@@ -10,13 +10,18 @@ const Partition = 'api::partition.partition';
 const Sms = 'api::sms.sms';
 
 module.exports = createCoreController(Partition, {
-    async create(ctx) {
-        //strapi.service(Sms).sendSms();
+    async findAll(ctx) {
         try {
-            const { body } = ctx.request;
-            console.log(body);
-            const rs = await strapi.entityService.create(Partition, {
-                data: body,
+            let { page, pageSize, sort, filters } = ctx.query;
+            let curPage = 0;
+            page ? page : (page = 1);
+            pageSize ? pageSize : (pageSize = 10);
+            curPage = page - 1;
+            const rs = await strapi.query(Partition).findMany({
+                limit: pageSize,
+                offset: pageSize * curPage,
+                orderBy: sort || { id: 'asc' },
+                filters: filters,
             });
             return this.transformResponse(rs);
         } catch (error) {

@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "pointLadder": {
-      "type": "json",
-      "required": true
-    },
     "practiceId": {
       "type": "relation",
       "relation": "manyToOne",
@@ -33,6 +29,10 @@
       "relation": "manyToOne",
       "target": "api::grammar.grammar",
       "inversedBy": "pointLadder"
+    },
+    "pointLadder": {
+      "type": "integer",
+      "required": true
     }
   }
 }

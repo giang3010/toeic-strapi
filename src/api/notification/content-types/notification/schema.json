@@ -4,7 +4,8 @@
   "info": {
     "singularName": "notification",
     "pluralName": "notifications",
-    "displayName": "Notification"
+    "displayName": "Notification",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -46,16 +47,6 @@
     "include_android_reg_ids": {
       "type": "json"
     },
-    "image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
-    },
     "read": {
       "type": "boolean",
       "default": false,
@@ -63,6 +54,9 @@
     },
     "time": {
       "type": "integer"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

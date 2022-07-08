@@ -3,6 +3,6 @@ EXPOSE 1337
 WORKDIR /toeic-strapi
 COPY . /toeic-strapi/
 RUN npm i
-RUN npm run build
-VOLUME [ "/toeic-strapi/public" ] 
-CMD [ "npm","start" ]
+RUN npm run production
+RUN npm run strapi build
+CMD [ "npm","start","build" ]
