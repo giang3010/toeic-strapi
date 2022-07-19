@@ -3,21 +3,29 @@ module.exports = {
             method: 'POST',
             path: '/questions/list',
             handler: 'question.findListByIds',
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
         {
             method: 'GET',
             path: '/questions/:id',
             handler: 'question.findById',
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
 
         {
             method: 'GET',
             path: '/questions',
             handler: 'question.findAll',
-            // config: {
-            //     auth: false,
-            //     middlewares: ['global::query'],
-            // },
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
 
         {

@@ -1,22 +1,30 @@
 module.exports = {
     routes: [{
             method: 'GET',
-            path: '/v1/practice/generate/:id',
+            path: '/practice/generate/:id',
             handler: 'practice.generate',
         },
         {
             method: 'GET',
-            path: '/v1/practice/:id',
+            path: '/practice/:id',
             handler: 'practice.findById',
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
         {
             method: 'GET',
-            path: '/v1/practice',
+            path: '/practices',
             handler: 'practice.findAll',
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
         {
             method: 'POST',
-            path: '/v1/practice',
+            path: '/practices',
             handler: 'practice.createPrac',
         },
     ],

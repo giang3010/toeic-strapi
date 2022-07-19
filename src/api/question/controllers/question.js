@@ -14,11 +14,13 @@ module.exports = createCoreController(Question, {
     async findListByIds(ctx) {
         try {
             const { ids } = ctx.request.body;
+            const { code } = ctx.request.partition;
             const res1 = await strapi.db.query(Question).findMany({
                 where: {
                     id: {
                         $in: ids,
                     },
+                    partitionCode: code,
                 },
                 populate: {
                     children: {
@@ -40,9 +42,11 @@ module.exports = createCoreController(Question, {
     async findById(ctx) {
         try {
             const { id } = ctx.params;
+            const { code } = ctx.request.partition;
             const rs = await strapi.query(Question).findOne({
                 where: {
                     id,
+                    partitionCode: code,
                 },
                 populate: {
                     children: {
@@ -62,6 +66,7 @@ module.exports = createCoreController(Question, {
 
     async findAll(ctx) {
         try {
+            const { code } = ctx.request.partition;
             let { page, pageSize, sort, filters } = ctx.query;
             let curPage = 0;
             page ? page : (page = 1);
@@ -73,7 +78,9 @@ module.exports = createCoreController(Question, {
                 offset: pageSize * curPage,
                 orderBy: sort || { id: 'asc' },
                 filters: filters,
-
+                where: {
+                    partitionCode: code,
+                },
                 populate: {
                     children: {
                         populate: {

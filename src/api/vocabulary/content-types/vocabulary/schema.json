@@ -16,10 +16,6 @@
       "type": "string",
       "required": true
     },
-    "type": {
-      "type": "string",
-      "required": false
-    },
     "translate": {
       "type": "string",
       "required": true
@@ -50,10 +46,35 @@
       "mappedBy": "vocabularyId"
     },
     "image": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "audio": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Adjective",
+        "Adverb",
+        "Conjunctions",
+        "Interjections",
+        "Nouns",
+        "Prepositions",
+        "Pronouns",
+        "Verb",
+        "None"
+      ],
+      "default": "None"
     }
   }
 }

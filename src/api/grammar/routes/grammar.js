@@ -8,7 +8,7 @@ const { createCoreRouter } = require('@strapi/strapi').factories;
 
 module.exports = createCoreRouter('api::grammar.grammar', {
     prefix: '',
-    except: ['find', 'fineOne'],
+    except: ['find', 'findOne'],
     only: ['create', 'update', 'delete'],
     config: {
         find: {

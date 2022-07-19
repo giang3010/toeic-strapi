@@ -22,7 +22,9 @@ module.exports = createCoreController(Partition, {
                 offset: pageSize * curPage,
                 orderBy: sort || { id: 'asc' },
                 filters: filters,
+                populate: ['image'],
             });
+            //strapi.services.sendmail.send(welcome, toEmail, 'Welcome', `A product has been created ${entity.name}`);
             return this.transformResponse(rs);
         } catch (error) {
             return this.transformResponse(error);

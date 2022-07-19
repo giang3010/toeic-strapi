@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_page_blocks",
+  "info": {
+    "displayName": "Block",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "Value1": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.value"
+    },
+    "Value2": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.value"
+    }
+  }
+}

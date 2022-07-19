@@ -6,18 +6,21 @@ module.exports = {
         },
         {
             method: 'GET',
-            path: '/grammars/list',
-            handler: 'grammar.findList',
-        },
-        {
-            method: 'GET',
             path: '/grammars/:id',
             handler: 'grammar.findById',
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
         {
             method: 'GET',
             path: '/grammars',
             handler: 'grammar.findAll',
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
     ],
 };

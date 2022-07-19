@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "Landing Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Header": {
+      "displayName": "Header",
+      "type": "component",
+      "repeatable": false,
+      "component": "page.header"
+    },
+    "Body": {
+      "type": "dynamiczone",
+      "components": [
+        "page.block",
+        "page.value"
+      ]
+    }
+  }
+}

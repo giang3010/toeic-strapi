@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_page_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Header": {
+      "displayName": "header1",
+      "type": "component",
+      "repeatable": false,
+      "component": "page.header1"
+    },
+    "text": {
+      "type": "text"
+    },
+    "buttons": {
+      "displayName": "buttons",
+      "type": "component",
+      "repeatable": true,
+      "component": "page.buttons"
+    }
+  }
+}

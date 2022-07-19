@@ -11,11 +11,13 @@ module.exports = createCoreController(Target, {
         try {
             const { id } = ctx.state.user;
             const { target, point } = ctx.request.body;
+            console.log(id, target, point);
             const curTarget = await strapi.query(Target).findOne({
                 where: {
                     userId: id,
                 },
             });
+            console.log(1, curTarget);
             if (!curTarget) {
                 const newTarget = await strapi.entityService.create(Target, {
                     data: {
@@ -24,13 +26,29 @@ module.exports = createCoreController(Target, {
                         point: point || null,
                     },
                 });
+                console.log(2, newTarget);
                 return this.transformResponse(newTarget);
             }
-            const data = await strapi.entityService.update(Target, {
-                target,
-                point,
+            const data = {
+                target: target || null,
+                point: point || null,
+            };
+            console.log(data);
+            const rs = await strapi.query(Target).update({
+                where: {
+                    userId: id,
+                },
+                data: {
+                    target: target || null,
+                    point: point || null,
+                },
+                populate: ['userId'],
             });
-            return this.transformResponse(data);
+
+            delete rs.password;
+            delete rs.resetPasswordToken;
+            delete rs.confirmationToken;
+            return this.transformResponse(rs);
         } catch (error) {
             return this.transformResponse(error);
         }
@@ -38,6 +56,7 @@ module.exports = createCoreController(Target, {
     async updatePoint(ctx) {
         try {
             const { id } = ctx.state.user;
+            const { point, target } = ctx.request.body;
             const curTarget = await strapi.query(Target).findOne({
                 where: {
                     userId: id,
@@ -46,7 +65,15 @@ module.exports = createCoreController(Target, {
             if (!curTarget) {
                 return 'common.RecordNotFound';
             }
-            const data = await strapi.entityService.update(Target, { point });
+            console.log(point, target);
+            const data = await strapi.db.query(Target).update({
+                where: {
+                    id,
+                },
+                data: {
+                    point,
+                },
+            });
             return this.transformResponse(data);
         } catch (error) {
             return this.transformResponse(error);
@@ -66,6 +93,9 @@ module.exports = createCoreController(Target, {
                 filters: filters,
                 populate: ['userId'],
             });
+            delete rs.password;
+            delete rs.resetPasswordToken;
+            delete rs.confirmationToken;
             return this.transformResponse(rs);
         } catch (error) {
             return this.transformResponse(error);
@@ -83,6 +113,10 @@ module.exports = createCoreController(Target, {
             if (!rs) {
                 return 'common.RecordNotFound';
             }
+            delete rs.password;
+            delete rs.resetPasswordToken;
+            delete rs.confirmationToken;
+            console.log(3, rs);
             return this.transformResponse(rs);
         } catch (error) {
             return this.transformResponse(error);

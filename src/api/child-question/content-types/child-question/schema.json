@@ -57,13 +57,26 @@
       "mappedBy": "questionChildrenId"
     },
     "audio": {
-      "type": "string"
+      "allowedTypes": [
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "private": true
     },
     "subAudio": {
-      "type": "string"
+      "allowedTypes": [
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "image": {
-      "type": "string"
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

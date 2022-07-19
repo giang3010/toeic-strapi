@@ -42,7 +42,11 @@
       "mappedBy": "grammarId"
     },
     "image": {
-      "type": "string"
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

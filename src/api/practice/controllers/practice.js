@@ -8,9 +8,23 @@ const { createCoreController } = require('@strapi/strapi').factories;
 const Practice = 'api::practice.practice';
 const PointLadder = 'api::point-ladder.point-ladder';
 module.exports = createCoreController(Practice, {
-    async findAll() {
+    async findAll(ctx) {
         try {
-            const rs = await strapi.entityService.findMany(Practice, {
+            const { code } = ctx.request.partition;
+            let { page, pageSize, sort, filters } = ctx.query;
+            let curPage = 0;
+            page ? page : (page = 1);
+            pageSize ? pageSize : (pageSize = 10);
+            curPage = page - 1;
+            console.log(page, pageSize);
+            const rs = await strapi.query(Practice).findMany({
+                limit: pageSize,
+                offset: pageSize * curPage,
+                orderBy: sort || { id: 'asc' },
+                filters: filters,
+                where: {
+                    partitionCode: code,
+                },
                 populate: ['pointLadder'],
             });
             return this.transformResponse(rs);
@@ -22,13 +36,18 @@ module.exports = createCoreController(Practice, {
     async findById(ctx) {
         try {
             const { id } = ctx.params;
-            console.log(id);
+            const { code } = ctx.request.partition;
+            console.log(code);
             const rs = await strapi.query(Practice).findOne({
                 where: {
-                    id: id,
+                    id,
+                    partitionCode: code,
                 },
                 populate: ['pointLadder'],
             });
+            if (!rs) {
+                return 'common.RecordNotFound';
+            }
             return this.transformResponse(rs);
         } catch (error) {
             return this.transformResponse(error);

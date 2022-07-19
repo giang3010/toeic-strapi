@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_page_values",
+  "info": {
+    "displayName": "Value"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "value": {
+      "type": "richtext"
+    }
+  }
+}

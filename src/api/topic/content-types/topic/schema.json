@@ -38,7 +38,11 @@
       "mappedBy": "topicId"
     },
     "image": {
-      "type": "string"
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

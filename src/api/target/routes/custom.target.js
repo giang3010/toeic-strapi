@@ -9,5 +9,15 @@ module.exports = {
             path: '/targets',
             handler: 'target.findAll',
         },
+        {
+            method: 'POST',
+            path: '/targets',
+            handler: 'target.setTarget',
+        },
+        // {
+        //     method: 'PUT',
+        //     path: '/targets/:id',
+        //     handler: 'target.updatePoint',
+        // },
     ],
 };

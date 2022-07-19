@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_page_headers",
+  "info": {
+    "displayName": "Header"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Button": {
+      "displayName": "Button",
+      "type": "component",
+      "repeatable": true,
+      "component": "page.button"
+    }
+  }
+}

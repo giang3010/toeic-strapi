@@ -75,11 +75,11 @@ module.exports = createCoreController(Vocabulary, {
     async findByListIds(ctx) {
         try {
             const { ids } = ctx.body;
-            console.log(1, ctx.body);
             const rs = await strapi.query(Vocabulary).findMany({
                 where: {
-                    id: { $in: [2, 3, 4] },
+                    id: { $in: ids },
                 },
+                populate: ['questions', 'image', 'audio'],
             });
             return this.transformResponse(rs);
         } catch (error) {
@@ -99,7 +99,7 @@ module.exports = createCoreController(Vocabulary, {
                 offset: pageSize * curPage,
                 orderBy: sort || { id: 'asc' },
                 filters: filters,
-                populate: ['questions'],
+                populate: ['questions', 'image', 'audio'],
             });
 
             const data = JSON.parse(JSON.stringify(rs));
@@ -137,7 +137,7 @@ module.exports = createCoreController(Vocabulary, {
                 where: {
                     id: id,
                 },
-                populate: ['questions'],
+                populate: ['questions', 'image', 'audio'],
             });
             if (!res) {
                 return 'common.recordNotFound';

@@ -45,10 +45,18 @@
       "inversedBy": "answers"
     },
     "audio": {
-      "type": "string"
+      "allowedTypes": [
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "subAudio": {
-      "type": "string"
+      "allowedTypes": [
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

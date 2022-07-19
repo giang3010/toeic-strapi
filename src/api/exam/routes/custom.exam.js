@@ -23,11 +23,19 @@ module.exports = {
             method: 'GET',
             path: '/exams/:id',
             handler: 'exam.findById',
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
         {
             method: 'GET',
             path: '/exams',
             handler: 'exam.findAll',
+            config: {
+                auth: false,
+                middlewares: ['global::partition'],
+            },
         },
     ],
 };

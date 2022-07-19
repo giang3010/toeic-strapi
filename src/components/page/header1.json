@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_page_header1s",
+  "info": {
+    "displayName": "header1"
+  },
+  "options": {},
+  "attributes": {
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "muted"
+      ]
+    },
+    "label": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

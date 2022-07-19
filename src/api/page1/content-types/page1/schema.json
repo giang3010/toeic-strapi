@@ -1,0 +1,31 @@
+{
+    "kind": "collectionType",
+    "collectionName": "page1s",
+    "info": {
+        "singularName": "page1",
+        "pluralName": "page1s",
+        "displayName": "Page1",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "slug": {
+            "type": "string"
+        },
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "page.seo"
+        },
+        "blocks": {
+            "type": "dynamiczone",
+            "components": ["page.hero"]
+        }
+    }
+}

@@ -8,7 +8,7 @@ const { createCoreRouter } = require('@strapi/strapi').factories;
 
 module.exports = createCoreRouter('api::question.question', {
     prefix: '',
-    only: [],
+    only: ['create', 'update', 'delete'],
     except: ['find', 'findOne'],
     config: {
         find: {
